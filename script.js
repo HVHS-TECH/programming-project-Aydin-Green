@@ -9,7 +9,9 @@ red.color='#ff0000'
 	console.log(Start)
 function draw() {
 	background(0, 0, 255)
-
+if (mousepresses()) {
+	console.log("click")
+}
 	if (Start = 0) {
 		text("Get Green to Red", windowWidth, windowHeight)
 	}
