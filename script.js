@@ -6,5 +6,9 @@ red.color='#ff0000'
 }
 
 function draw() {
+	if (Start = 0) {
+		text("Get Green to Red", windowWidth, windowHeight)
+	}
+	
 	background(0, 0, 255)
 }
