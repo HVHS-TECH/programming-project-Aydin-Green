@@ -9,7 +9,7 @@ red.color='#ff0000'
 	console.log(Start)
 function draw() {
 	background(0, 0, 255)
-if (mousepresses()) {
+if (mouse.presses()) {
 	console.log("click")
 }
 	if (Start = 0) {
