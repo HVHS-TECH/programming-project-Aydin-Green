@@ -13,7 +13,10 @@ function draw() {
 	background(0, 0, 255)
 if (mouse.presses()) {
 	console.log("click")
+	Start = Start + 1
+	console.log(Start)
 }
+
 	if (Start = 0) {
 		text("Get Green to Red", windowWidth/2, windowHeight/2-75)
 	}
