@@ -1,10 +1,11 @@
+var green = 0
 function setup() {
 	console.log("setup: ");
 	cnv = new Canvas(windowWidth, windowHeight)
 
 	var red = new Sprite(windowWidth / 2, windowHeight / 2, 50, 'd')
 	red.color = '#ff0000'
-	var green = new Sprite(windowWidth / 2, windowHeight / 2 + 75, 25, 'd')
+	green = new Sprite(windowWidth / 2, windowHeight / 2 + 75, 25, 'd')
 	green.color = '#00ff00'
 
 }
@@ -19,7 +20,11 @@ function draw() {
 		Start = Start + 1
 		console.log(Start)
 		if (Start > 0) {
-				green.moveTowards(mouseX, mouseY, '1');
+				
+		}
+		else {
+			green.vel.x = 0;
+			green.vel.y = 0;
 		}
 	}
 
