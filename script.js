@@ -20,12 +20,26 @@ function draw() {
 		Start = Start + 1
 		console.log(Start)
 		if (Start > 0) {
-				green.moveTowards(mouseX, mouseY, '0.001')
+			if (green.x > mouseX){
+				green.vel.x = -1
+			} else{
+				if (green.x < mouseX){
+					green.vel.x = 1
+				}
+			}
+			if (green.y > mouseX){
+				green.vel.y = -1
+			} else {
+				if (green.y < mouseY){
+					green.vel.y = 1
+				}
+			}
 		}
-		else {
-			green.vel.x = 0;
-			green.vel.y = 0;
-		}
+
+	}
+	else {
+		green.vel.x = 0;
+		green.vel.y = 0;
 	}
 
 	if (Start == 0) {
