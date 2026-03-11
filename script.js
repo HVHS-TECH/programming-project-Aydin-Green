@@ -20,7 +20,7 @@ function draw() {
 		Start = Start + 1
 		console.log(Start)
 		if (Start > 0) {
-				
+				green.moveTowards(mouseX, MouseY, '0.001')
 		}
 		else {
 			green.vel.x = 0;
