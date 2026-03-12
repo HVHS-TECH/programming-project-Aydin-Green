@@ -22,16 +22,20 @@ function draw() {
 		if (Start > 0) {
 			if (green.x > mouseX){
 				green.vel.x = -1
+				console.log(green.vel.x)
 			} else{
 				if (green.x < mouseX){
 					green.vel.x = 1
+					console.log(green.vel.x)
 				}
 			}
-			if (green.y > mouseX){
+			if (green.y > mouseY){
 				green.vel.y = -1
+				console.log(green.vel.y)
 			} else {
 				if (green.y < mouseY){
 					green.vel.y = 1
+					console.log(green.vel.y)
 				}
 			}
 		}
@@ -50,6 +54,6 @@ function draw() {
 	else {
 		Timer = Timer + 1
 		text((Timer / 100), 75, 75)
-		console.log(Timer)
+		//console.log(Timer)
 	}
 }
