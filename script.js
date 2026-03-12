@@ -1,59 +1,72 @@
 var green = 0
+var red = 0
 function setup() {
 	console.log("setup: ");
 	cnv = new Canvas(windowWidth, windowHeight)
 
-	var red = new Sprite(windowWidth / 2, windowHeight / 2, 50, 'd')
+	red = new Sprite(random(0, windowWidth), random(0, windowHeight), 50, 'd')
 	red.color = '#ff0000'
 	green = new Sprite(windowWidth / 2, windowHeight / 2 + 75, 25, 'd')
 	green.color = '#00ff00'
 
 }
+
+
 var Start = 0
+function win() {
+	Start = -1
+	red.remove();
+}
 console.log(Start)
 var Timer = 0
 console.log(Timer)
 function draw() {
 	background(0, 0, 255)
 	if (mouse.presses()) {
-		console.log("click")
-		Start = Start + 1
-		console.log(Start)
-		if (Start > 0) {
-			if (green.x > mouseX){
-				green.vel.x = -1
-				console.log(green.vel.x)
-			} else{
-				if (green.x < mouseX){
-					green.vel.x = 1
+		if (Start >= 0) {
+			console.log("click")
+			Start = Start + 1
+			console.log(Start)
+			if (Start > 0) {
+				if (green.x > mouseX) {
+					green.vel.x = -1
 					console.log(green.vel.x)
+				} else {
+					if (green.x < mouseX) {
+						green.vel.x = 1
+						console.log(green.vel.x)
+					}
 				}
-			}
-			if (green.y > mouseY){
-				green.vel.y = -1
-				console.log(green.vel.y)
-			} else {
-				if (green.y < mouseY){
-					green.vel.y = 1
+				if (green.y > mouseY) {
+					green.vel.y = -1
 					console.log(green.vel.y)
+				} else {
+					if (green.y < mouseY) {
+						green.vel.y = 1
+						console.log(green.vel.y)
+					}
 				}
 			}
 		}
-
 	}
 	else {
 		green.vel.x = 0;
 		green.vel.y = 0;
 	}
-
+	green.collides(red, win);
 	if (Start == 0) {
 		textSize(22)
 		text("Get Green to Red", (windowWidth / 2) - 75, windowHeight / 2 - 75);
 		fill = ('#ffffff');
 	}
 	else {
-		Timer = Timer + 1
+		if (Start > 0)
+			Timer = Timer + 1
 		text((Timer / 100), 75, 75)
 		//console.log(Timer)
+	}
+	if (Start < 0) {
+		green.remove();
+			text("you win! your finishing time is in the top left corner :)", ((windowWidth / 2)-75), (windowHeight / 2));
 	}
 }
